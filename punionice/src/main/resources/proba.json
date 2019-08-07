@@ -1,0 +1,17 @@
+[
+{
+"ID":1,
+"ime":"Mario",
+"status":"on"
+}
+,
+{
+"ID":5,
+"ime":"Šime",
+"status":"off"
+},
+{
+"ID":3,
+"ime":"Pero",
+"status":"off"
+}]
