@@ -13,9 +13,9 @@ import lombok.*;
 @JsonSerialize
 public class Punionica {
 	@GeneratedValue( strategy = GenerationType.AUTO )
-	@Id private Long pk_id;
+	@Id @Column(name="ID")private Long id;
 
-private int ID;
+//private int ID;
 private String UUID;
 //Array//private String[] AddressInfo = new String[] {"Title","AddressLine1","AddressLine2","Town","StateOrProvince","Postcode","CountryID"};
 //List//private ArrayList<String> AddressInfo = new ArrayList<String>() {{
@@ -25,9 +25,9 @@ private String UUID;
 @Embedded
 private AddressInfo AddressInfo;
 
-@Embedded
+/*@Embedded
 private Connection Connections;
-
+*/
 public Punionica() {
 	}
 }
