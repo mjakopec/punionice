@@ -1,8 +1,11 @@
 package com.example.punionice.api;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,5 +34,11 @@ public class FillerController {
 	@RequestMapping(method = RequestMethod.DELETE, value="/delete/{id}")
 	public void deleteTopic(@PathVariable Long ID) {
 			fillerService.deletePunionica(ID);
+		}
+	
+	@RequestMapping(value = "/process", method = RequestMethod.POST)
+	public void process(@RequestBody Map<String, Object>[] payload) 
+		    throws Exception {
+		    System.out.println(payload);
 		}
 }
