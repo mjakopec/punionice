@@ -1,33 +1,26 @@
 package com.example.punionice.api;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-
 import lombok.*;
 
-
+@Entity(name = "Punionica")
+@Table(name="punionica")
 @Data
-@AllArgsConstructor
-@Entity
-@JsonSerialize
+@NoArgsConstructor
 public class Punionica {
-	@GeneratedValue( strategy = GenerationType.AUTO )
-	@Id @Column(name="ID")private Long id;
-
-//private int ID;
+@GeneratedValue( strategy = GenerationType.AUTO )
+@Id 
+private Long pk_id;
 private String UUID;
-//Array//private String[] AddressInfo = new String[] {"Title","AddressLine1","AddressLine2","Town","StateOrProvince","Postcode","CountryID"};
-//List//private ArrayList<String> AddressInfo = new ArrayList<String>() {{
-    //add("Title"); add("AddressLine1"); add("AddressLine2"); add("Town"); add("StateOrProvince"); add("Postcode"); add("CountryID");}};
-//private Map<String, String> AddressInfo;
-
 @Embedded
 private AddressInfo AddressInfo;
 
-/*@Embedded
-private Connection Connections;
-*/
-public Punionica() {
-	}
+@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+@JoinColumn(name = "pk_id")
+	private List<Connection> Connections=new ArrayList<>();
 }
+/*@Embedded
+private List<Connection> Connections;
+}*/

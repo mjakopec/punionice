@@ -37,7 +37,7 @@ public class PunioniceApplication {
 	InputStream inputStream =Punionica[].class.getResourceAsStream("/data.json");
 
 	try {
-		Iterable<Punionica> punionice = mapper.readValue(inputStream,typeReference);
+		List<Punionica> punionice = mapper.readValue(inputStream,typeReference);
 		fillerService.save(punionice); 
 		System.out.println("Punionice Spremljene! ");
 		}

@@ -1,23 +1,23 @@
 package com.example.punionice.api;
 
-import javax.persistence.*;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 @Embeddable
 public class AddressInfo {
-	@GeneratedValue( strategy = GenerationType.AUTO )
+private String addressLine1;
+private String addressLine2;
+private String town;
+private String stateOrProvince;
+private String postcode;
+private Integer countryID;
+@Embedded
+private Country country;
 
-private String Title;
-private String AddressLine1;
-private String AddressLine2;
-private String Town;
-private String StateOrProvince;
-private String Postcode;
-private String CountryID;
-
-public AddressInfo() {}
+public AddressInfo() {
+	
+}
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 public class FillerService {
 	
 	private FillerRepository fillerRepository;
-	private CustomQuery customquery;
+	//private CustomQuery customquery;
 
     public FillerService(FillerRepository fillerRepository) {
         this.fillerRepository = fillerRepository;
@@ -26,7 +26,8 @@ public class FillerService {
     }
 
 	public Iterable<Punionica> list_specific(String grad,boolean pwr) {
-		return customquery.findBySpecial(grad,pwr);
+		//return customquery.findBySpecial(grad,pwr);
+		return fillerRepository.findAll();
 	}
 	
 	public String deletePunionica(Long ID) {

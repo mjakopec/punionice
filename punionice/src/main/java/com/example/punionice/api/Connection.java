@@ -1,28 +1,30 @@
 package com.example.punionice.api;
+import javax.persistence.*;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
 
 @Data
-@AllArgsConstructor
+@NoArgsConstructor
+@Entity(name="Connection")
+@Table(name="konekcije")
 @Embeddable
 public class Connection {
-/*public  int Amps;
-private int Voltage;*/
-@Column(name="PowerKW")
-private double PowerKW;
-/*
-public int getAmps() {return Amps;}
-public void setAmps(int amps) {amps = Amps;}
+	//Connection je JSON Array
 
-public int getVoltage() {return Voltage;}
-public void setVoltage(int voltage) {voltage = Voltage;}
-*/
-public Double getPowerKW() {return PowerKW;}
-public void setPowerKW(Double powerKW) {PowerKW = powerKW;}
+@Id	
+@GeneratedValue( strategy = GenerationType.AUTO )
+private Long pk_id_2;
+private String Amps;
+private String Voltage;
+private String PowerKW;
 
-public Connection(){
-	}
+@Override
+public String toString() {
+return new ToStringBuilder(this)
+		.append("amps", Amps)
+		.append("voltage", Voltage)
+		.append("powerKW", PowerKW).toString();
+}
 }
