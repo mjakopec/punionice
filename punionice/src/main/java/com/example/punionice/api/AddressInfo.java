@@ -2,7 +2,8 @@ package com.example.punionice.api;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 @Data
 @AllArgsConstructor
@@ -18,6 +19,5 @@ private Integer countryID;
 private Country country;
 
 public AddressInfo() {
-	
 }
 }

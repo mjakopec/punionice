@@ -1,9 +1,16 @@
 package com.example.punionice.api;
-import javax.persistence.*;
 
-import lombok.*;
+import javax.persistence.Embeddable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import org.apache.commons.lang.builder.ToStringBuilder;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
@@ -11,7 +18,6 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @Table(name="konekcije")
 @Embeddable
 public class Connection {
-	//Connection je JSON Array
 
 @Id	
 @GeneratedValue( strategy = GenerationType.AUTO )
