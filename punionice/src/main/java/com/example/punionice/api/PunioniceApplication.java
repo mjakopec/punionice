@@ -13,7 +13,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.MapperFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 
 @SpringBootApplication
 public class PunioniceApplication {
@@ -30,7 +29,6 @@ public class PunioniceApplication {
 	ObjectMapper mapper = new ObjectMapper();
 	mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 	mapper.configure(DeserializationFeature.USE_JAVA_ARRAY_FOR_JSON_ARRAY, true);
-	
 	mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
 	
 	TypeReference<Iterable<Punionica>> typeReference = new	TypeReference<Iterable<Punionica>>(){}; 
@@ -38,6 +36,7 @@ public class PunioniceApplication {
 
 	try {
 		List<Punionica> punionice = mapper.readValue(inputStream,typeReference);
+		fillerService.deleteAll();//ovo treba doraditi
 		fillerService.save(punionice); 
 		System.out.println("Punionice Spremljene! ");
 		}

@@ -1,5 +1,4 @@
 package com.example.punionice.api;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.*;
@@ -19,8 +18,5 @@ private AddressInfo AddressInfo;
 
 @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
 @JoinColumn(name = "pk_id")
-	private List<Connection> Connections=new ArrayList<>();
+	private List<Connection> Connections;
 }
-/*@Embedded
-private List<Connection> Connections;
-}*/

@@ -28,12 +28,11 @@ public class FillerController {
 		return fillerService.list();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value="/getSpecific")
-	public List<Punionica> list_specific(){
-//	public Iterable<Punionica> list_specific(@PathVariable("grad") String grad ,@PathVariable("yesno") String power){
-		//boolean pwr=false;
-		//if(power=="yes") {pwr=true;}
-		return (List<Punionica>) customquery.list_specific();
+	@RequestMapping(method = RequestMethod.GET, value="/getSpecific/{grad}/{yesno}")
+	public Iterable<Punionica> list_specific(@PathVariable("grad") String grad ,@PathVariable("yesno") Integer power){
+		Integer pwr=1;
+		if(power==0) {pwr=0;}
+		return (List<Punionica>) customquery.list_specific(grad,pwr);
 	}
 	
 	@RequestMapping(method = RequestMethod.DELETE, value="/list/{ID}")
