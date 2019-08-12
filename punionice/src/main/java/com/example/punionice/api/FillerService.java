@@ -1,14 +1,15 @@
 package com.example.punionice.api;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
 @Service
 public class FillerService {
 	
+	@Autowired
 	private FillerRepository fillerRepository;
-	//private CustomQuery customquery;
-
+	
     public FillerService(FillerRepository fillerRepository) {
         this.fillerRepository = fillerRepository;
     }
@@ -25,8 +26,8 @@ public class FillerService {
     	fillerRepository.saveAll(punionice);
     }
 
-	public Iterable<Punionica> list_specific(String grad,boolean pwr) {
-		//return customquery.findBySpecial(grad,pwr);
+	public Iterable<Punionica> list_specific() {
+		
 		return fillerRepository.findAll();
 	}
 	

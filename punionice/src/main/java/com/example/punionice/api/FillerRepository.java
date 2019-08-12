@@ -1,7 +1,10 @@
 package com.example.punionice.api;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-	public interface FillerRepository extends CrudRepository<Punionica,Long>{
-
-}
+@Repository	
+public interface FillerRepository extends CrudRepository<Punionica,Long>{
+	}
+	
+	
