@@ -24,6 +24,7 @@ public class Punionica {
 @GeneratedValue( strategy = GenerationType.AUTO )
 @Id 
 private Long pk_id;
+private String ID;
 private String UUID;
 @Embedded
 private AddressInfo AddressInfo;

@@ -28,10 +28,10 @@ public class FillerController {
 		return fillerService.list();
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, value="/getSpecific/{grad}/{yesno}")
-	public Iterable<Punionica> list_specific(@PathVariable("grad") String grad ,@PathVariable("yesno") Integer power){
+	@RequestMapping(method = RequestMethod.GET, value="/getSpecific/grad={grad}/power={yesno}")
+	public Iterable<Punionica> list_specific(@PathVariable("grad") String grad ,@PathVariable("yesno") Boolean power){
 		Integer pwr=1;
-		if(power==0) {pwr=0;}
+		if(power) {pwr=0;}
 		return (List<Punionica>) customquery.list_specific(grad,pwr);
 	}
 	

@@ -2,7 +2,10 @@ package com.example.punionice.api;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URL;
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -32,8 +35,10 @@ public class PunioniceApplication {
 	mapper.configure(MapperFeature.ACCEPT_CASE_INSENSITIVE_PROPERTIES, true);
 	
 	TypeReference<Iterable<Punionica>> typeReference = new	TypeReference<Iterable<Punionica>>(){}; 
+	
 	InputStream inputStream =Punionica[].class.getResourceAsStream("/data.json");
-
+//	InputStream inputStream = new URL("https://api.openchargemap.io/v3/poi/?output=json&amp&countryid=60").openStream();
+	
 	try {
 		List<Punionica> punionice = mapper.readValue(inputStream,typeReference);
 		fillerService.deleteAll();//ovo treba doraditi
